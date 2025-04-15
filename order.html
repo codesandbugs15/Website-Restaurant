@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order-form</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="icon" type="image/x-icon" href="./asset/Favicon-Photoroom.png">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Amber Grills</a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#menu">Menu</a></li>
+                <li><a href="order.html">Order Now</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="order-section">
+        <h1 class="order-title">Place Your Order</h1>
+        <form class="order-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Delivery Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Select Items</label>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="./asset/img1.jpg" alt="Grilled Steak">
+                        <h3>Grilled Steak</h3>
+                        <p>$24.99</p>
+                        <input type="number" class="quantity-input" min="0" value="0">
+                    </div>
+                    <div class="menu-item">
+                        <img src="./asset/img4.jpg" alt="BBQ Ribs">
+                        <h3>BBQ Ribs</h3>
+                        <p>$29.99</p>
+                        <input type="number" class="quantity-input" min="0" value="0">
+                    </div>
+                    <div class="menu-item">
+                        <img src="./asset/img5.jpg" alt="Chicken Wings">
+                        <h3>Chicken Wings</h3>
+                        <p>$18.99</p>
+                        <input type="number" class="quantity-input" min="0" value="0">
+                    </div>
+                    <div class="menu-item">
+                        <img src="./asset/img6.jpg" alt="Grilled Salmon">
+                        <h3>Grilled Salmon</h3>
+                        <p>$26.99</p>
+                        <input type="number" class="quantity-input" min="0" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="special-requests">Special Requests</label>
+                <textarea id="special-requests" name="special-requests" placeholder="Any special instructions or dietary requirements?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Place Order</button>
+        </form>
+    </section>
+</body>
+</html>

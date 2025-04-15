@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Amber Grills</title>
+    <link rel="stylesheet" href="style copy.css" />
+    <link rel="icon" type="image/x-icon" href="./asset/Favicon-Photoroom.png">
+    <style>
+      :root {
+        --primary: #d35400;
+        --primary-hover: #f39c12;
+        --primary-foreground: #ffffff;
+        --background: #0f1419;
+        --card-background: #1a1e24;
+        --foreground: #f8f9fa;
+        --muted-foreground: #a0aec0;
+        --border-radius: 8px;
+        --transition-speed: 0.3s;
+        --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      /* --header-- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #121212;
+        color: #fff;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0%;
+        background-color: rgba(18, 18, 18, 0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        transition: background-color 0.3s ease;
+      }
+
+      header.scrolled {
+        background-color: rgba(18, 18, 18, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
+        color: #d35400;
+        text-decoration: none;
+        margin-left: 5%;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        transition: color 0.3s ease;
+        font-family: "Arial", sans-serif;
+      }
+
+      nav ul li a:hover {
+        color: #d35400;
+      }
+
+      .cart-btn {
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-icon {
+        margin-right: 5px;
+      }
+
+      .cart-count {
+        margin-left: 5px;
+      }
+
+      .reservation-btn {
+        background-color: #d35400;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 20px;
+        /* font-weight: bold; */
+        margin-right: 5%;
+        /* text-transform: uppercase; */
+      }
+
+      /* sec-one Styles */
+      .sec-one {
+        text-align: center;
+        padding: 6rem 0 2rem 0;
+        background-color: #0f1419;
+        position: relative;
+        margin-bottom: -60px;
+      }
+
+      .menu-title {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 1rem;
+        color: #d35400;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 12px;
+        font-family: Cinzel, "Palatino Linotype", sans-serif;
+      }
+
+      .menu-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: #d35400;
+      }
+
+      .main-title {
+        font-size: 3rem;
+        margin: 1.5rem 0;
+        color: #ffffff;
+        font-weight: 600;
+        font-family: Cinzel, "Palatino Linotype", sans-serif;
+      }
+
+      .description {
+        max-width: 800px;
+        margin: 0 auto;
+        color: #ccc;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 0 20px;
+        font-family: Inter;
+      }
+
+      .menu-page {
+        background-color: #121212;
+        min-height: 100vh;
+        padding-top: 40px;
+        position: relative;
+      }
+
+      .menu-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        background: rgba(15, 20, 25, 0.85);
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-item {
+        background-color: rgba(24, 24, 24, 0.95);
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+        position: relative;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .menu-category-title {
+        color: #d35400;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        font-family: Inter;
+      }
+
+      .menu-category-title::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background-color: #d35400;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .menu-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .item-name {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-family: Cinzel, "Palatino Linotype", sans-serif;
+      }
+
+      .item-description {
+        color: #ccc;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .item-price {
+        color: #d1c8b5;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .add-to-cart-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-right: 15px;
+        /* margin-top: 5%; */
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        background-color: #fc7d0d;
+        color: white;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: #f59b5f;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+      }
+
+      .add-to-cart-btn:active {
+        transform: translateY(0);
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #e67e22;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+      }
+
+      .menu-note {
+        color: #ccc;
+        text-align: center;
+        font-style: italic;
+        margin: 20px 0;
+      }
+
+      .combo-option {
+        background-color: rgba(31, 31, 31, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+        text-align: center;
+        color: #e67e22;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="#" class="logo">Amber Grills</a>
+      <nav>
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="cart.html" class="cart-btn"
+              ><span class="cart-icon">🛒</span>Cart<span class="cart-count"
+                >0</span
+              ></a
+            >
+          </li>
+        </ul>
+      </nav>
+      <a href="reservation.html" class="reservation-btn">Reservation</a>
+    </header>
+  
+    <div class="sec-one">
+      <span class="menu-title">Our Menu</span>
+      <h1 class="main-title">Discover Our Culinary Delights</h1>
+      <p class="description">
+        Explore our carefully curated menu featuring the finest ingredients and
+        expert preparation
+      </p>
+    </div>
+
+    <div class="menu-page">
+      <section class="menu-section">
+        <div class="menu-category">
+          <h2 class="menu-category-title">Breakfast</h2>
+          <div class="combo-option">
+            Make it a COMBO! Add hash browns and a small coffee or tea for ₹150
+            extra
+          </div>
+          <div class="menu-items">
+            <div class="menu-item">
+              <h3 class="item-name">Crispy Chicken Biscuit</h3>
+              <p class="item-description">
+                Crispy chicken thigh smothered in house-made gravy on a toasted
+                biscuit. Add egg +₹60, Add cheddar +₹40
+              </p>
+              <div class="item-price">₹350</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Crispy Chicken Biscuit', 350, './asset/img1.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Classic English Breakfast</h3>
+              <p class="item-description">
+                Two eggs any style, bacon, grilled tomatoes, mushrooms, baked
+                beans, and toast
+              </p>
+              <div class="item-price">₹450</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Classic English Breakfast', 450, './asset/img2.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Avocado Toast</h3>
+              <p class="item-description">
+                Smashed avocado on artisanal sourdough with poached eggs, cherry
+                tomatoes, and microgreens
+              </p>
+              <div class="item-price">₹380</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Avocado Toast', 380, './asset/img3.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h2 class="menu-category-title">Lunch</h2>
+          <div class="menu-items">
+            <div class="menu-item">
+              <h3 class="item-name">Grilled Chicken Caesar</h3>
+              <p class="item-description">
+                Romaine lettuce, grilled chicken breast, parmesan crisps,
+                house-made caesar dressing
+              </p>
+              <div class="item-price">₹420</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Grilled Chicken Caesar', 420, './asset/img4.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Signature Burger</h3>
+              <p class="item-description">
+                House-ground beef patty, aged cheddar, caramelized onions,
+                special sauce on a brioche bun
+              </p>
+              <div class="item-price">₹480</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Signature Burger', 480, './asset/img5.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Grilled Salmon Bowl</h3>
+              <p class="item-description">
+                Fresh salmon, quinoa, roasted vegetables, avocado, with
+                lemon-dill sauce
+              </p>
+              <div class="item-price">₹550</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Grilled Salmon Bowl', 550, './asset/img6.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h2 class="menu-category-title">Dinner</h2>
+          <div class="menu-items">
+            <div class="menu-item">
+              <h3 class="item-name">Ribeye Steak</h3>
+              <p class="item-description">
+                12oz premium cut, garlic mashed potatoes, seasonal vegetables,
+                red wine reduction
+              </p>
+              <div class="item-price">₹950</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Ribeye Steak', 950, './asset/img7.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Grilled Sea Bass</h3>
+              <p class="item-description">
+                Fresh sea bass, herb-roasted potatoes, grilled asparagus, lemon
+                butter sauce
+              </p>
+              <div class="item-price">₹850</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Grilled Sea Bass', 850, './asset/img8.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Truffle Mushroom Risotto</h3>
+              <p class="item-description">
+                Arborio rice, wild mushrooms, truffle oil, parmesan, fresh herbs
+              </p>
+              <div class="item-price">₹650</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Truffle Mushroom Risotto', 650, './asset/img9.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h2 class="menu-category-title">Wine List</h2>
+          <div class="menu-items">
+            <div class="menu-item">
+              <h3 class="item-name">House Red Wine</h3>
+              <p class="item-description">Cabernet Sauvignon - Glass/Bottle</p>
+              <div class="item-price">₹350/₹1600</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('House Red Wine', 350, './asset/img10.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">House White Wine</h3>
+              <p class="item-description">Chardonnay - Glass/Bottle</p>
+              <div class="item-price">₹350/₹1600</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('House White Wine', 350, './asset/img11.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Premium Red</h3>
+              <p class="item-description">Malbec Reserve - Bottle Only</p>
+              <div class="item-price">₹2200</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Premium Red', 2200, './asset/img12.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h2 class="menu-category-title">Beverages</h2>
+          <div class="menu-items">
+            <div class="menu-item">
+              <h3 class="item-name">Craft Cocktails</h3>
+              <p class="item-description">
+                House Old Fashioned / Signature Martini / Spiced Mule
+              </p>
+              <div class="item-price">₹450</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Craft Cocktails', 450, './asset/img13.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Premium Coffee</h3>
+              <p class="item-description">
+                Espresso / Cappuccino / Latte / Americano / Frappe
+              </p>
+              <div class="item-price">₹180-250</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Premium Coffee', 180, './asset/img14.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div class="menu-item">
+              <h3 class="item-name">Fresh Juices</h3>
+              <p class="item-description">
+                Orange / Mixed Berry / Green Detox / Tropical Blend
+              </p>
+              <div class="item-price">₹220</div>
+              <button
+                class="add-to-cart-btn"
+                onclick="addToCart('Fresh Juices', 220, './asset/img15.jpg')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Amber Grills</h3>
+          <p>
+            Experience the art of living with our curated selections and expert
+            chefs.
+          </p>
+          <div class="social-links">
+            <a href="#">FB</a>
+            <a href="#">IG</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Opening Hours</h3>
+          <p>Monday - Friday: 11am - 11pm</p>
+          <p>Saturday - Sunday: 10am - 12am</p>
+          <p>Happy Hour: 4pm - 6pm</p>
+        </div>
+        <div class="footer-section">
+          <h3>The Source Crew</h3>
+          <p>Nupur Kumari</p>
+          <p>Sneha Agrawal</p>
+          <p>Akash Chaudhary</p>
+          <p>Anurag Upadhyay</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="reservation.html">Reservations</a>
+          <a href="privateEvent.html">Private Events</a>
+          <a href="giftCard.html">Gift Cards</a>
+          <a href="career.html">Careers</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 TheSourceCrew. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Cart functionality
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartCount = document.querySelector(".cart-count");
+
+      function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (cartCount) {
+          cartCount.textContent = totalItems;
+        }
+      }
+
+      function addToCart(name, price, image) {
+        const existingItem = cart.find((item) => item.name === name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1,
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+
+        // Show added to cart message
+        const message = document.createElement("div");
+        message.textContent = "Added to cart!";
+        message.className = "notification";
+        document.body.appendChild(message);
+
+        // Remove message after 2 seconds
+        setTimeout(() => {
+          message.style.animation = "fadeOut 0.3s ease-out";
+          setTimeout(() => message.remove(), 300);
+        }, 2000);
+      }
+
+      // Initialize cart count
+      updateCartCount();
+    </script>
+  </body>
+</html>

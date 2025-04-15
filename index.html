@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amber Grills</title>
+  
+    <link rel="stylesheet" href="style.css">  <link rel="icon" type="image/x-icon" href="./asset/Favicon-Photoroom.png">
+</head>
+<body>
+    <header id="header">
+        <a href="#" class="logo">Amber Grills</a>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="cart.html" class="cart-btn"><span class="cart-icon">🛒</span>Cart<span class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+        <a href="reservation.html" class="reservation-btn">Reservation</a>
+    </header>
+
+    <section class="hero" id="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="./asset/videomain.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Experience the Best <span class="highlight">Grilled Delicacies</span></h1>
+            <p class="hero-description">Indulge in our premium selection of perfectly curated meals, prepared with passion and expertise.</p>
+            <a href="order.html" class="btn btn-primary">Order Now</a>
+            <a href="menu.html" class="btn btn-secondary">View Menu</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">Our Story</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Premium  Experience</h3>
+                <p>Amber Grills is where exceptional taste meets mindful cooking. We pride ourselves on using only premium, hand-selected ingredients to craft dishes that are rich in flavor and rooted in quality</p>
+                <p>Every food material we use is carefully selected from trusted suppliers who share our commitment to ethical and sustainable practices. Our chefs are trained in both traditional and contemporary techniques, allowing them to create dishes that honor culinary traditions while introducing innovative twists.</p>
+                <p>At Amber Grills, we deliver a dining experience that satisfies both your cravings and your commitment to health. At Amber Grill, every meal is a celebration of food, flavor, and finesse.</p>
+            </div>
+            <div class="about-image">
+                <img src="./asset/img9.jpeg" alt="Chef cooking">
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2 class="section-title">Our Specialties </button></h2>
+        
+        <div class="slider-container">
+            <div class="menu-slider" id="menuSlider">
+                <div class="menu-item">
+                    <img src="./asset/img10.png" alt="Kadhai Paneer">
+                    <div class="menu-item-content">
+                        
+                        <h3 class="menu-item-title">Kadhai Paneer</h3>
+                        <div class="menu-item-price">₹ 350</div>
+                        <p class="menu-item-description">Cottage cheese cubes cooked in a rich, spicy gravy with bell peppers and onions, finished with a touch of cream.</p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Kadhai Paneer', 350, 'img10.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="./asset/img7.jpg" alt="Butter Chicken">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Kathi wrap</h3>
+                        <div class="menu-item-price">₹ 450</div>
+                        <p class="menu-item-description">flaky paratha wrapped around  spiced paneer and vegetables topped with onions, chutneys, and sauces for an extra kick.
+                        </p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Butter Chicken', 450, 'img7.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="./asset/dalmakhni.png" alt="Dal Makhani">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Dal Makhani</h3>
+                        <div class="menu-item-price">₹ 280</div>
+                        <p class="menu-item-description">Creamy flavorful healthy slow-cooked with spices and finished with butter and coriander toppings, served with naan bread.</p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Dal Makhani', 280, 'img5.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="./asset/Ustaadi Hyderabadi Veg Biryani.avif" alt="Vegetable Biryani">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Vegetable Biryani</h3>
+                        <div class="menu-item-price">₹ 320</div>
+                        <p class="menu-item-description">Fragrant and healthy basmati rice cooked with mixed vegetables and aromatic spices, served tastefully with raita.</p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Vegetable Biryani', 320, 'img6.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="./asset/img4.jpg" alt="Palak Paneer">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Palak Paneer</h3>
+                        <div class="menu-item-price">₹ 300</div>
+                        <p class="menu-item-description">All favorite spicy curry with protien rich soft paneer cubes, seasoned with Indian spices and a touch of cream.</p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Palak Paneer', 300, 'img4.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="./asset/img1.jpg" alt="Chana Masala">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Honey chilli patato</h3>
+                        <div class="menu-item-price">₹ 250</div>
+                        <p class="menu-item-description">crispy, sweet, and spicy fried potato tossed in a tangy sauce made with honey, chili, garlic, and soy makeing delicious start to any meal.</p>
+                        <div class="menu-item-buttons">
+                            <button class="add-to-cart-btn" onclick="addToCart('Chana Masala', 250, 'img1.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn">←</button>
+            <button class="slider-btn" id="nextBtn">→</button>
+        </div>
+        <a href="menu.html" class="btn btn-primary"> View Menu</a> 
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🥗</div>
+                <h3>Premium Quality</h3>
+                <p>We source only the finest ingredients from trusted suppliers who share our commitment to quality and sustainability.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Expert Chefs</h3>
+                <p>Our team of experienced chefs combines traditional techniques with modern innovation to create unforgettable dishes.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔥</div>
+                <h3>Perfect Cooking</h3>
+                <p>We've mastered the art of cooking, using specialized equipment and techniques to achieve the perfect texture and flavor.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <h3>Fresh Ingredients</h3>
+                <p>From our signature spice blends to our locally-sourced vegetables, we prioritize freshness in every component of your meal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Restaurant Glimpse</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="./asset/image3.jpg" alt="Dining">
+                <div class="gallery-overlay">
+                    <span>Luxurious and Soothing</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./asset/img5.jpg" alt="Bar area">
+                <div class="gallery-overlay">
+                    <span>Bar space</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./asset/img13.jpeg" alt="breakfast">
+                <div class="gallery-overlay">
+                    <span>Professionals</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./asset/img8.jpeg" alt="Dessert">
+                <div class="gallery-overlay">
+                    <span>Our kitchen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Amber Grills</h3>
+                <p>Experience the art of living with our curated selections and expert chefs.</p>
+                <div class="social-links">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <p>Monday - Friday: 11am - 11pm</p>
+                <p>Saturday - Sunday: 10am - 12am</p>
+                <p>Happy Hour: 4pm - 6pm</p>
+            </div>
+            <div class="footer-section">
+                <h3>The Source Crew</h3>
+                <p>Nupur Kumari</p>
+                <p>Sneha Agrawal</p>
+                <p>Akash Chaudhary</p>
+                <p>Anurag Upadhyay</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="reservation.html">Reservations</a>
+                <a href="privateEvent.html">Private Events</a>
+                <a href="giftCard.html">Gift Cards</a>
+                <a href="career.html">Careers</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TheSourceCrew. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
